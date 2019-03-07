@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
+import ForecastDetail from './ForecastDetail';
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -26,14 +28,17 @@ class Weather extends React.Component{
   };
 
 
-  render(){
+  render(){//Button for handleOpen required to allow Button for handleClose to work
+    const today = this.props.forecast.forecastMoment.format('ddd');
+    const { text, icon } = this.props.forecast.day.condition;
+
     return (<div>
       <hr/>
       <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-        <h3>{this.props.forecast.forecastMoment.format('ddd')}</h3>
+        <h3>{today}</h3>
       </Button>
-      {this.props.forecast.day.condition.text}
-      <img src={this.props.forecast.day.condition.icon} alt='weather icon'/>
+      {text}
+      <img src={icon} alt='weather icon'/>
 
       <Dialog
           open={this.state.open}
@@ -41,18 +46,13 @@ class Weather extends React.Component{
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">{today}</DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              Let Google help apps determine your location, even when no apps are running?
-            </DialogContentText>
+            <ForecastDetail forecast={this.props.forecast}/>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Disagree
-            </Button>
             <Button onClick={this.handleClose} color="primary" autoFocus>
-              Agree
+              DONE
             </Button>
           </DialogActions>
         </Dialog>

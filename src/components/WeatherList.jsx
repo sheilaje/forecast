@@ -8,7 +8,6 @@ function WeatherList(props){
   return(
     <div>
       {props.forecastList.map((forecast)=>{
-        console.log(forecast.forecastMoment.format('ddd'));
         return <Weather forecast={forecast} key={v4()}/>
       })}
     </div>
