@@ -9,8 +9,13 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import './assets/styles/styles.css';
 
 class Weather extends React.Component{
+
+
+
+
   constructor(props){
     super(props);
     this.state={open: false,
@@ -32,13 +37,12 @@ class Weather extends React.Component{
     const today = this.props.forecast.forecastMoment.format('ddd');
     const { text, icon } = this.props.forecast.day.condition;
 
-    return (<div>
-      <hr/>
-      <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-        <h3>{today}</h3>
-      </Button>
+    return (<div className = 'divStyle' >
       {text}
-      <img src={icon} alt='weather icon'/>
+      <p className ='pStyle'><img src={icon} alt='weather icon'/></p>
+      <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+        <p className ='pStyle'>{today}</p>
+      </Button>
 
       <Dialog
           open={this.state.open}
@@ -46,7 +50,7 @@ class Weather extends React.Component{
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{today}</DialogTitle>
+          <p className ='pStyle'><DialogTitle id="alert-dialog-title">{today}</DialogTitle></p>
           <DialogContent>
             <ForecastDetail forecast={this.props.forecast}/>
           </DialogContent>

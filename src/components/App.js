@@ -3,6 +3,7 @@ import { createForecastAction } from '../actions';
 import ForecastListReducer from '../reducers';
 import { connect } from 'react-redux';
 import WeatherList from './WeatherList';
+import './assets/styles/styles.css';
 
 class App extends Component {
   constructor(props){

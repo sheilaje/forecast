@@ -5,8 +5,14 @@ import {v4} from 'uuid';
 import Moment from 'moment';
 
 function WeatherList(props){
+
+  const divStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+  }
+
   return(
-    <div>
+    <div style={divStyle}>
       {props.forecastList.map((forecast)=>{
         return <Weather forecast={forecast} key={v4()}/>
       })}
