@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import degreeC from './assets/images/degreeC.jpg'
 
 function ForecastDetail(props){
   const today = props.forecast.forecastMoment.format('ddd');
@@ -13,9 +14,9 @@ function ForecastDetail(props){
       <dl>
         <dt>Temperature</dt>
         <dd>
-          Min:  {mintemp_c}^C  {mintemp_f}^F<br/>
-          max:  {maxtemp_c}^C  {maxtemp_f}^F<br/>
-          avg:  {avgtemp_c}^C  {avgtemp_f}^F<br/>
+          Min:  {mintemp_c}degree C  {mintemp_f}degree F<br/>
+          max:  {maxtemp_c}degree C  {maxtemp_f}degree F<br/>
+          avg:  {avgtemp_c}degree C  {avgtemp_f}degree F<br/>
         </dd>
         <dt>Max Windspeed</dt>
         <dd>{maxwind_kph} kph  |  {maxwind_mph} mph</dd>

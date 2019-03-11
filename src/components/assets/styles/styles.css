@@ -87,12 +87,12 @@ a {
   color: inherit;
 }
 
-.container {
+/* .container {
   display: grid;
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
+} */
 
 .btn {
   background-color: #fff;
